@@ -1,21 +1,8 @@
-import { useQuery } from "@tanstack/react-query";
-import { CACHE_KEY_PLATFORM } from "../data/constants";
-import platforms from "../data/platforms";
-import APIClient, { FetchResponse } from "../services/api-client";
+import usePlatforms from "./usePlatforms";
 
-export interface Platform {
-    id: number;
-    name: string;
-    slug: string;
-}
-const apiClient = new APIClient<Platform>("/platforms/lists/parents");
-
-const usePlatform = () => {
-    return useQuery<FetchResponse<Platform>, Error>({
-        queryKey: CACHE_KEY_PLATFORM,
-        queryFn: () => apiClient.getAll(),
-        initialData: { count: platforms.length, results: platforms },
-    });
+const usePlatform = (id?: number) => {
+    const { data: platforms } = usePlatforms();
+    return platforms?.results.find((p) => p.id === id);
 };
 
 export default usePlatform;
