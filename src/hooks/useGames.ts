@@ -4,7 +4,7 @@ import { FetchResponse } from "../services/api-client";
 import { Platform } from "./usePlatforms";
 import { CACHE_KEY_GAMES } from "../data/constants";
 import APIClient from "../services/api-client";
-
+import ms from 'ms'
 export interface Game {
     id: number;
     name: string;
@@ -31,7 +31,8 @@ const useGames = (gameQuery: GameQuery) =>
         getNextPageParam: (lastpage, allPages) => {
             return lastpage.next ? allPages.length + 1 : undefined;
         },
-        staleTime: 24 * 60 * 60 * 1000,
+        staleTime: ms('24h'),
     });
 
+    
 export default useGames;
