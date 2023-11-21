@@ -15,4 +15,6 @@ I build this app becuase i wanted to learn how React works and how to use it
 - How to use 3rd part components like react-icons, chakra-ui and react-spinners
 - How to use axios to fetch data from an API
 - How to use react-spring to animate components
+- Using context providers, reducers along with state management with zustand
+- Using react router
 - and more...
