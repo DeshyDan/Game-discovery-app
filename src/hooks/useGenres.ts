@@ -3,12 +3,7 @@ import ms from "ms";
 import { CACHE_KEY_GENRE } from "../data/constants";
 import genres from "../data/genres";
 import APIClient, { FetchResponse } from "../services/api-client";
-
-export interface Genre {
-    id: number;
-    name: string;
-    image_background: string;
-}
+import { Genre } from "../entities/Genre";
 
 const apiClient = new APIClient<Genre>("/genres");
 
@@ -17,8 +12,8 @@ const useGenres = () => {
     return useQuery<FetchResponse<Genre>, Error>({
         queryKey: CACHE_KEY_GENRE,
         queryFn: () => apiClient.getAll(),
-        staleTime: ms('24h'),
-        initialData: genres
+        staleTime: ms("24h"),
+        initialData: genres,
     });
 };
 

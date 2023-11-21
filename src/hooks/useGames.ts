@@ -3,17 +3,7 @@ import ms from "ms";
 import { CACHE_KEY_GAMES } from "../data/constants";
 import APIClient, { FetchResponse } from "../services/api-client";
 import useGameQueryStore from "../stores/gameQueryStore";
-import { Platform } from "./usePlatforms";
-export interface Game {
-    id: number;
-    name: string;
-    background_image: string;
-    parent_platforms: { platform: Platform }[];
-    metacritic: number;
-    slug: string;
-    description_raw: string;
-}
-
+import { Game } from "../entities/Game";
 const apiClient = new APIClient<Game>("/games");
 
 const useGames = () => {
