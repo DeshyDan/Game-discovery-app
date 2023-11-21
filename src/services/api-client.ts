@@ -21,6 +21,12 @@ class APIClient<T> {
             .get<FetchResponse<T>>(this.endpoint, config)
             .then((res) => res.data);
     }
+
+    get = (id: number | string) => {
+        return apiInstance
+            .get<T>(this.endpoint + "/" + id)
+            .then((res) => res.data);
+    };
 }
 
 export default APIClient;
