@@ -20,7 +20,7 @@ class APIClient<T> {
         return apiInstance
             .get<FetchResponse<T>>(this.endpoint, config)
             .then((res) => res.data);
-    };
+    }
 
     get = (id: number | string) => {
         return apiInstance
