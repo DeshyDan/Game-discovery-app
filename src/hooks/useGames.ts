@@ -3,7 +3,7 @@ import ms from "ms";
 import { CACHE_KEY_GAMES } from "../data/constants";
 import APIClient, { FetchResponse } from "../services/api-client";
 import useGameQueryStore from "../stores/gameQueryStore";
-import { Game } from "../entities/Game";
+import Game  from "../entities/Game";
 const apiClient = new APIClient<Game>("/games");
 
 const useGames = () => {

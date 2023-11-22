@@ -1,6 +1,4 @@
-
-
-export interface Publisher{
-    id:number, 
-    name:string
+export default interface Publisher {
+    id: number;
+    name: string;
 }
